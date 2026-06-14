@@ -82,4 +82,4 @@ The purpose of this course is to introduce relational database concepts and to l
 
 ---
 
-[⬅ Previous — Python Project for Data Science](../05.%20Python%20Project%20for%20Data%20Science/) &nbsp;|&nbsp; [➡ Back to Main](../README.md)
+[⬅ Previous — Python Project for Data Science](../05.%20Python%20Project%20for%20Data%20Science/) &nbsp;|&nbsp; [➡ Next — Data Analysis with Python](../07.%20Data%20Analysis%20with%20Python/) &nbsp;|&nbsp; [🏠 Back to Main](../README.md)
