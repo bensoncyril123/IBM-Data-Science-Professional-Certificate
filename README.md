@@ -23,8 +23,8 @@ This repository contains notebooks, assignments, and notes for each completed co
 - ✅ [06. Databases and SQL for Data Science with Python](06.%20Databases%20and%20SQL%20for%20Data%20Science%20with%20Python/)
 - ✅ [07. Data Analysis with Python](07.%20Data%20Analysis%20with%20Python/)
 - ✅ [08. Data Visualization with Python](08.%20Data%20Visualization%20with%20Python/)
-- ⏳ 09. Machine Learning with Python
-- ⏳ 10. Applied Data Science Capstone
+- ✅ [09. Machine Learning with Python](09.%20Machine%20Learning%20with%20Python/)
+- ✅ [10. Applied Data Science Capstone](10.%20Applied%20Data%20Science%20Capstone/)
 
 ---
 
