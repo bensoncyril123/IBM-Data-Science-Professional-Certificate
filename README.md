@@ -8,6 +8,15 @@ This repository contains documentation and resources used to complete the certif
 
 ---
 
+## 🏅 Certification
+
+| | Link |
+|-|------|
+| 📜 **Coursera Certificate** | [View Certificate](https://coursera.org/share/af49c3f45a346544266bc45673b4a42a) |
+| 🎖️ **IBM Credly Badge** | [View Badge](https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url) |
+
+---
+
 ## 📄 About
 
 The IBM Data Science Professional Certificate is a rigorous 10-course programme offered by IBM on Coursera. It equips learners with the tools, skills, and practical experience needed to launch a career in data science. Topics span the complete data science workflow — from data collection and wrangling through exploratory analysis, visualisation, machine learning, and final applied capstone work.
