@@ -82,4 +82,16 @@ The purpose of this course is to introduce relational database concepts and to l
 
 ---
 
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/b94d36512a1194745ded92558905e91e">
+    <img src="certificate.png" alt="Databases and SQL for Data Science with Python — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
 [⬅ Previous — Python Project for Data Science](../05.%20Python%20Project%20for%20Data%20Science/) &nbsp;|&nbsp; [➡ Next — Data Analysis with Python](../07.%20Data%20Analysis%20with%20Python/) &nbsp;|&nbsp; [🏠 Back to Main](../README.md)
