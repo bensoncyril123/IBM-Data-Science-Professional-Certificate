@@ -8,15 +8,6 @@ This repository contains documentation and resources used to complete the certif
 
 ---
 
-## 🏅 Certification
-
-| | Link |
-|-|------|
-| 📜 **Coursera Certificate** | [View Certificate](https://coursera.org/share/af49c3f45a346544266bc45673b4a42a) |
-| 🎖️ **IBM Credly Badge** | [View Badge](https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url) |
-
----
-
 ## 📄 About
 
 The IBM Data Science Professional Certificate is a rigorous 10-course programme offered by IBM on Coursera. It equips learners with the tools, skills, and practical experience needed to launch a career in data science. Topics span the complete data science workflow — from data collection and wrangling through exploratory analysis, visualisation, machine learning, and final applied capstone work.
@@ -141,6 +132,26 @@ The following Python libraries were used throughout the certification: <br>
 - **Machine Learning** — Supervised classification (LR, SVM, Decision Tree, KNN), model tuning via GridSearchCV
 - **Databases** — SQL on IBM Db2, ipython-sql integration, joins, sub-queries, aggregations
 - **Deployment-Ready Skills** — End-to-end project delivery, reproducible notebooks, version control
+
+---
+
+## 🏅 Certifications
+
+<p align="center">
+  <a href="https://coursera.org/share/af49c3f45a346544266bc45673b4a42a">
+    <img src="certificates/Certificate_Screenshot.png" alt="IBM Data Science Professional Certificate" width="400">
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url">
+    <img src="https://images.credly.com/images/42ce4209-8839-431a-9046-f2ce2e72e04b/linkedin_thumb_Coursera_20Data_20Science_20Professional_20Certificate.png" alt="IBM Credly Badge" width="200">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://coursera.org/share/af49c3f45a346544266bc45673b4a42a">📜 View Coursera Certificate</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url">🎖️ View Credly Badge</a>
+</p>
 
 ---
 
