@@ -51,4 +51,16 @@ This course provides a comprehensive overview of the tools and environments used
 
 ---
 
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/90b2c94603256c15889337b71f54a872">
+    <img src="certificate.png" alt="Tools for Data Science — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
 [⬅ Previous — What is Data Science?](../01.%20What%20is%20Data%20Science/) &nbsp;|&nbsp; [➡ Next — Data Science Methodology](../03.%20Data%20Science%20Methodology/)
