@@ -66,4 +66,16 @@ This course covers how to present and visualise data so that insights are easy t
 
 ---
 
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/935371050e9dd4133b9be1772e7029da">
+    <img src="certificate.png" alt="Data Visualization with Python — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
 [⬅ Previous — Data Analysis with Python](../07.%20Data%20Analysis%20with%20Python/) &nbsp;|&nbsp; [🏠 Back to Main](../README.md)
