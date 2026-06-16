@@ -27,3 +27,16 @@ This course is a hands-on project course applying Python skills to a real-world 
 
 ## 💡 My Takeaway
 This project reinforced that data acquisition is rarely clean or straightforward. Both yfinance API changes and messy HTML tables required debugging and robust handling. The GameStop case study was particularly instructive — it demonstrates how social sentiment and retail investor coordination can completely decouple a stock price from its underlying business fundamentals, something no regression model would have predicted.
+
+
+---
+
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/a910d937e2e4ecf96b6a333a9f9548e5">
+    <img src="certificate.png" alt="Python Project for Data Science — Certificate of Completion" width="600">
+  </a>
+</p>
