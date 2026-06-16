@@ -91,13 +91,51 @@ The following Python libraries were used throughout the certification: <br>
 
 ## 🎓 Key Skills Acquired
 
-- **Data Collection** — REST APIs, web scraping with BeautifulSoup, SQL queries
-- **Data Wrangling** — Pandas, data cleaning, feature engineering, one-hot encoding
-- **Exploratory Analysis** — Statistical summaries, correlation analysis, visual EDA
-- **Data Visualisation** — Matplotlib, Seaborn, Plotly charts, Folium maps, interactive Dash dashboards
-- **Machine Learning** — Supervised classification (LR, SVM, Decision Tree, KNN), model tuning via GridSearchCV
-- **Databases** — SQL on IBM Db2, ipython-sql integration, joins, sub-queries, aggregations
-- **Deployment-Ready Skills** — End-to-end project delivery, reproducible notebooks, version control
+### 🔗 Data Collection & Acquisition
+- Consumed REST APIs using the `requests` library — including SpaceX API for real launch data
+- Web scraping with `BeautifulSoup` and `requests` to extract structured data from HTML tables
+- Loaded and merged datasets from multiple sources (CSV, API JSON, SQL) into unified DataFrames
+- Wrote SQL `SELECT`, `JOIN`, `GROUP BY`, `HAVING`, and sub-query statements against IBM Db2 cloud databases
+
+### 🧹 Data Wrangling & Feature Engineering
+- Handled missing values using `.fillna()`, `.dropna()`, and domain-informed imputation strategies
+- Detected and treated outliers using IQR and z-score methods
+- Applied one-hot encoding (`pd.get_dummies()`) to convert categorical variables into 83 binary features
+- Engineered new features from raw data (e.g. payload range bins, booster generation labels, flight number trends)
+- Normalised and standardised numerical features using `StandardScaler` ahead of model training
+
+### 📊 Exploratory Data Analysis (EDA)
+- Generated descriptive statistics, value counts, and correlation matrices to profile datasets
+- Built scatter plots, bar charts, line plots, box plots, and heatmaps to uncover patterns and anomalies
+- Identified key trends: success rates improving year-on-year, orbit-type impact on landing outcomes, payload mass thresholds by site
+- Used SQL analytical queries to answer business questions directly from the database layer
+
+### 📈 Data Visualisation
+- **Matplotlib & Seaborn** — publication-quality static charts with custom styling, colour palettes, and annotations
+- **Plotly** — interactive charts (bar, pie, scatter) with hover tooltips and dynamic filtering
+- **Folium** — interactive geographic maps with `Circle` markers, `MarkerCluster` for 56 launch records, `PolyLine` distance measurements, and `CartoDB dark_matter` tile layers
+- **Plotly Dash** — built a fully interactive web dashboard with a site-selection dropdown, payload range slider, and live-updating pie and scatter charts
+
+### 🤖 Machine Learning
+- Implemented and compared four supervised classifiers: **Logistic Regression**, **Support Vector Machine**, **Decision Tree**, and **K-Nearest Neighbors**
+- Tuned hyperparameters using `GridSearchCV` with 10-fold cross-validation (`cv=10`) across multi-dimensional parameter grids
+- Evaluated models using accuracy score, confusion matrix, and classification report
+- Identified **Decision Tree** as the best model at **94.4% test accuracy** — outperforming a 66.7% baseline by 27.7 percentage points
+- Applied `train_test_split` with stratification and fixed `random_state` for reproducibility
+- Built regression models (simple and multiple linear regression, Ridge, polynomial) for continuous prediction tasks
+
+### 🗄️ Databases & SQL
+- Queried a live IBM Db2 cloud database using `ipython-sql` magic commands directly in Jupyter
+- Wrote 10+ analytical SQL queries including multi-table joins, aggregate functions, sub-queries, and `RANK()` window functions
+- Retrieved targeted subsets (e.g. drone ship landings between 4,000–6,000 kg payload, failed landings in 2015)
+- Created and populated tables using DDL/DML (`CREATE TABLE`, `INSERT`, `UPDATE`)
+
+### 🛠️ Tools, Workflow & Best Practices
+- Developed entirely within **Jupyter Notebooks** — combining code, markdown narrative, and inline visualisations
+- Used **Git & GitHub** for version control — branching, committing, pull requests, and maintaining a structured repository
+- Worked within **IBM Watson Studio** and **IBM Cloud Pak** for cloud-hosted notebook execution
+- Followed a structured data science methodology (CRISP-DM): business understanding → data understanding → preparation → modelling → evaluation → deployment
+- Produced end-to-end reproducible pipelines from raw API data through to final model predictions
 
 ---
 
