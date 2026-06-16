@@ -37,4 +37,16 @@ This course introduces structured frameworks for approaching data science proble
 
 ---
 
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/b05d4c4c4747eaba7a4634801955a9b3">
+    <img src="certificate.png" alt="Data Science Methodology — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
 [⬅ Previous — Tools for Data Science](../02.%20Tools%20for%20Data%20Science/) &nbsp;|&nbsp; [➡ Next — Python for Data Science](../04.%20Python%20for%20Data%20Science%2C%20AI%20%26%20Development/)
