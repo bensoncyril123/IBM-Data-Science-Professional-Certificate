@@ -143,9 +143,15 @@ The following Python libraries were used throughout the certification: <br>
   <a href="https://coursera.org/share/af49c3f45a346544266bc45673b4a42a">
     <img src="certificates/Coursera_Certificate.png" alt="IBM Data Science Professional Certificate — click to verify" width="480">
   </a>
+</p>
+
+<p align="center">
+  <a href="https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url">
+    <img src="certificates/IBM_Badge.png" alt="IBM Credly Badge — click to verify" width="380">
+  </a>
   &nbsp;&nbsp;&nbsp;
   <a href="https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url">
-    <img src="certificates/IBM_Badge.png" alt="IBM Credly Badge — click to verify" width="320">
+    <img src="certificates/Certificate_Screenshot.png" alt="IBM Professional Certificate Badge — click to verify" width="200">
   </a>
 </p>
 
