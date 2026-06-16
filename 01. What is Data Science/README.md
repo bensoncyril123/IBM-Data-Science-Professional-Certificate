@@ -36,4 +36,16 @@ The first course in the IBM Data Science Professional Certificate introduces the
 
 ---
 
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/02230656f1686f2fcef011fd70f63f54">
+    <img src="certificate.png" alt="What is Data Science? — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
 [⬅ Back to Main](../README.md) &nbsp;|&nbsp; [➡ Next Course — Tools for Data Science](../02.%20Tools%20for%20Data%20Science/)
