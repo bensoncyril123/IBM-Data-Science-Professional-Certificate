@@ -51,4 +51,16 @@ This course builds practical Python programming skills specifically for data sci
 
 ---
 
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/d958f566860d759ab78f7c5809750fbb">
+    <img src="certificate.png" alt="Python for Data Science, AI & Development — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
 [⬅ Previous — Data Science Methodology](../03.%20Data%20Science%20Methodology/) &nbsp;|&nbsp; [➡ Next — Python Project for Data Science](../05.%20Python%20Project%20for%20Data%20Science/)
