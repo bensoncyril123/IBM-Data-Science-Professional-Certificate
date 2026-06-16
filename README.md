@@ -35,40 +35,6 @@ This repository serves as a structured record of completed coursework, key learn
 
 ---
 
-## 🔍 Course Summaries
-
-### 01. What is Data Science?
-An introduction to the field of data science — covering what data scientists do, the tools and skills they use, and real-world applications across industries including healthcare, finance, and technology.
-
-### 02. Tools for Data Science
-Hands-on exposure to the primary tools of the trade: Jupyter Notebooks, RStudio, Git/GitHub, Watson Studio, and the broader IBM open-source ecosystem. Also covers the Data Science toolkit landscape.
-
-### 03. Data Science Methodology
-Exploration of the structured methodology behind data science projects — from problem framing and data collection through modelling, evaluation, and deployment. Based on the CRISP-DM and Foundational Methodology frameworks.
-
-### 04. Python for Data Science, AI & Development
-Core Python programming for data science: data structures, functions, file I/O, libraries (Pandas, NumPy), APIs, and web scraping. Hands-on coding exercises throughout.
-
-### 05. Python Project for Data Science
-A practical mini-project applying Python skills to a real-world scenario: extracting, transforming, and visualising financial data for GameStop and Tesla using `yfinance` and `BeautifulSoup`.
-
-### 06. Databases and SQL for Data Science with Python
-Writing SQL to query relational databases hosted on IBM Db2. Covers DDL/DML, joins, sub-queries, aggregations, and using `ipython-sql` to run SQL directly within Jupyter notebooks.
-
-### 07. Data Analysis with Python
-Using Pandas and SciPy for exploratory data analysis — wrangling, feature engineering, correlation analysis, and building baseline regression models. Final assignment: Automobile price prediction.
-
-### 08. Data Visualization with Python
-Creating compelling visualisations with Matplotlib, Seaborn, Folium (maps), Plotly, and Dash (interactive dashboards). Final assignment: US Domestic Airline Performance Dashboard.
-
-### 09. Machine Learning with Python
-Supervised and unsupervised machine learning algorithms: regression, classification (KNN, Decision Trees, SVM, Logistic Regression), clustering (K-Means, DBSCAN), and model evaluation techniques.
-
-### 10. Applied Data Science Capstone
-End-to-end capstone project predicting SpaceX Falcon 9 first-stage landing outcomes. Covers data collection via API & web scraping, SQL analysis, EDA, interactive maps (Folium), a Plotly Dash dashboard, and four ML classifiers — best result: **Decision Tree at 94.4% test accuracy**.
-
----
-
 ## 🏆 Capstone Project Highlights
 
 **Project:** SpaceX Falcon 9 First Stage Landing Prediction
