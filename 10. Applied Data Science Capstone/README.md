@@ -54,3 +54,19 @@ The full capstone slide deck (50 slides) is included in this repository.
 ## Tools & Libraries
 
 `pandas` · `numpy` · `requests` · `BeautifulSoup` · `scikit-learn` · `matplotlib` · `seaborn` · `folium` · `plotly` · `dash` · `ibm_db`
+
+---
+
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/e98ee8a8cf452a69a2467644227b852e">
+    <img src="certificate.png" alt="Applied Data Science Capstone — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
+*IBM Data Science Professional Certificate — Course 10 of 10*
