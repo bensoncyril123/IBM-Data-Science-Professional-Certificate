@@ -145,7 +145,7 @@ The following Python libraries were used throughout the certification: <br>
   </a>
   &nbsp;&nbsp;&nbsp;
   <a href="https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url">
-    <img src="https://images.credly.com/images/42ce4209-8839-431a-9046-f2ce2e72e04b/linkedin_thumb_Coursera_20Data_20Science_20Professional_20Certificate.png" alt="IBM Credly Badge — click to verify" width="200">
+    <img src="certificates/IBM_Badge.png" alt="IBM Credly Badge — click to verify" width="320">
   </a>
 </p>
 
