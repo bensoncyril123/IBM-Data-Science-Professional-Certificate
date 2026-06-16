@@ -137,20 +137,16 @@ The following Python libraries were used throughout the certification: <br>
 
 ## 🏅 Certifications
 
+<p align="center"><em>Click on an image to verify the certification</em></p>
+
 <p align="center">
   <a href="https://coursera.org/share/af49c3f45a346544266bc45673b4a42a">
-    <img src="certificates/Coursera_Certificate.png" alt="IBM Data Science Professional Certificate" width="500">
+    <img src="certificates/Coursera_Certificate.png" alt="IBM Data Science Professional Certificate — click to verify" width="480">
   </a>
   &nbsp;&nbsp;&nbsp;
   <a href="https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url">
-    <img src="https://images.credly.com/images/42ce4209-8839-431a-9046-f2ce2e72e04b/linkedin_thumb_Coursera_20Data_20Science_20Professional_20Certificate.png" alt="IBM Credly Badge" width="200">
+    <img src="https://images.credly.com/images/42ce4209-8839-431a-9046-f2ce2e72e04b/linkedin_thumb_Coursera_20Data_20Science_20Professional_20Certificate.png" alt="IBM Credly Badge — click to verify" width="200">
   </a>
-</p>
-
-<p align="center">
-  <a href="https://coursera.org/share/af49c3f45a346544266bc45673b4a42a">📜 View Coursera Certificate</a>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="https://www.credly.com/badges/7d3f256a-58de-4213-8e04-5afd1d48b495/public_url">🎖️ View Credly Badge</a>
 </p>
 
 ---
