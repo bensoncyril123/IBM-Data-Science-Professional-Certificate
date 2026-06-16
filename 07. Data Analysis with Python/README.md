@@ -78,4 +78,16 @@ This course covers the full workflow for analysing data with Python — from imp
 
 ---
 
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/984cde1f31ef4345d6fe77c98df414de">
+    <img src="certificate.png" alt="Data Analysis with Python — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
 [⬅ Previous — Databases and SQL for Data Science with Python](../06.%20Databases%20and%20SQL%20for%20Data%20Science%20with%20Python/) &nbsp;|&nbsp; [➡ Next — Data Visualization with Python](../08.%20Data%20Visualization%20with%20Python/) &nbsp;|&nbsp; [🏠 Back to Main](../README.md)
