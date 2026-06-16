@@ -42,4 +42,16 @@ This course introduces the core concepts and algorithms of machine learning usin
 
 ---
 
+## 🏅 Certificate of Completion
+
+<p align="center"><em>Click on the image to verify the certification</em></p>
+
+<p align="center">
+  <a href="https://coursera.org/share/8ba0d9a79360a9233231852029e2c22a">
+    <img src="certificate.png" alt="Machine Learning with Python — Certificate of Completion" width="600">
+  </a>
+</p>
+
+---
+
 *IBM Data Science Professional Certificate — Course 9 of 10*
