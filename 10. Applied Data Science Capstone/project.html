@@ -131,7 +131,7 @@ main { padding-top: 60px; }
   text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
-.hero-badge::before { content: "●"; font-size: 0.5rem; animation: pulse 2s infinite; }
+
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
 h1.hero-title {
@@ -694,7 +694,6 @@ footer span { color: var(--accent-cyan); }
   <div class="hero-bg"></div>
   <div class="hero-stars"></div>
   <div class="hero-content">
-    <div class="hero-rocket">&#x1F680;</div>
     <div class="hero-badge">IBM Applied Data Science Capstone</div>
     <h1 class="hero-title">SpaceX Falcon 9<br>First Stage Landing Prediction</h1>
     <p class="hero-author">Benson Cyril Nana Boakye</p>
@@ -757,22 +756,18 @@ footer span { color: var(--accent-cyan); }
 
   <div class="card-grid card-grid-2" style="margin-bottom:2rem;">
     <div class="card">
-      <div class="card-icon">&#x1F4B0;</div>
       <div class="card-title">The Business Problem</div>
       <div class="card-body">SpaceX advertises Falcon 9 launches at <strong style="color:var(--accent-cyan)">$62M</strong> — far below competitors charging $165M+. The key: first-stage reusability. If competitors could predict when SpaceX will attempt a landing (and its likelihood of success), they could price launches more competitively.</div>
     </div>
     <div class="card">
-      <div class="card-icon">&#x1F3AF;</div>
       <div class="card-title">Project Objective</div>
       <div class="card-body">Build a machine learning classifier that predicts whether the Falcon 9 first stage will successfully land, using publicly available launch data from the SpaceX API and Wikipedia. This enables competitive cost estimation for rival launch providers.</div>
     </div>
     <div class="card">
-      <div class="card-icon">&#x1F4CA;</div>
       <div class="card-title">Dataset</div>
       <div class="card-body">90 Falcon 9 launches collected via the SpaceX REST API (v4) and Wikipedia web scraping. Features include flight number, payload mass, orbit type, launch site, booster version, and landing pad. Target: binary success/failure (Class 0/1).</div>
     </div>
     <div class="card">
-      <div class="card-icon">&#x1F9EA;</div>
       <div class="card-title">Methodology</div>
       <div class="card-body">End-to-end data science pipeline: REST API data collection &rarr; web scraping &rarr; data wrangling &rarr; EDA &rarr; SQL analysis &rarr; interactive geospatial analytics with Folium &rarr; classification with GridSearchCV-tuned models.</div>
     </div>
@@ -807,7 +802,6 @@ footer span { color: var(--accent-cyan); }
 
     <div class="card-grid card-grid-3" style="margin-bottom:1.5rem;">
       <div class="card">
-        <div class="card-icon">&#x1F517;</div>
         <div class="card-title">Endpoints Used</div>
         <div class="card-body">
           <div class="tag" style="margin-bottom:0.3rem; display:block;">/v4/launches/past</div>
@@ -818,14 +812,12 @@ footer span { color: var(--accent-cyan); }
         </div>
       </div>
       <div class="card">
-        <div class="card-icon">&#x1F4E6;</div>
         <div class="card-title">Data Retrieved</div>
         <div class="card-body">
           90 Falcon 9 launches with 18 raw fields per record. Missing PayloadMass values filled with column mean. Filtered from 200+ total launches to Falcon 9 only.
         </div>
       </div>
       <div class="card">
-        <div class="card-icon">&#x1F527;</div>
         <div class="card-title">Helper Functions</div>
         <div class="card-body">
           <code style="font-size:0.75rem; color:var(--accent-purple);">getBoosterVersion()</code><br>
@@ -882,12 +874,10 @@ data_falcon9.to_csv(<span class="string">'dataset_part_1.csv'</span>, index=<spa
 
     <div class="card-grid card-grid-2" style="margin-bottom:1.5rem;">
       <div class="card">
-        <div class="card-icon">&#x1F578;&#xFE0F;</div>
         <div class="card-title">Approach</div>
         <div class="card-body">Used <code style="color:var(--accent-purple);">requests</code> to fetch the Wikipedia page, then <code style="color:var(--accent-purple);">BeautifulSoup</code> with <code style="color:var(--accent-purple);">html5lib</code> parser to find all <code>.wikitable</code> tables. Column headers extracted from <code>&lt;th&gt;</code> tags and normalized.</div>
       </div>
       <div class="card">
-        <div class="card-icon">&#x1F4CB;</div>
         <div class="card-title">Columns Extracted</div>
         <div class="card-body">Flight No., Date/Time (UTC), Launch Site, Payload, Payload Mass (kg), Orbit, Customer, Launch Outcome, Booster Version, Landing Outcome — covering flights from June 2010 onward.</div>
       </div>
@@ -945,17 +935,14 @@ df = pd.DataFrame(launch_dict)
 
   <div class="card-grid card-grid-3" style="margin-bottom:2rem;">
     <div class="card">
-      <div class="card-icon">&#x1F9FC;</div>
       <div class="card-title">Missing Value Handling</div>
       <div class="card-body">PayloadMass had missing values imputed with the column mean. Landing outcome records with <code style="color:var(--accent-purple);">None None</code> entries were identified and handled. No rows were dropped to preserve dataset size.</div>
     </div>
     <div class="card">
-      <div class="card-icon">&#x1F3F7;&#xFE0F;</div>
       <div class="card-title">Class Label Creation</div>
       <div class="card-body">The <code style="color:var(--accent-purple);">Outcome</code> column was transformed into a binary <code style="color:var(--accent-green);">Class</code> label: <strong style="color:var(--accent-green);">1 = Successful Landing</strong>, <strong style="color:var(--accent-red);">0 = Failed/No Landing</strong>. 60 successful, 30 failed landings.</div>
     </div>
     <div class="card">
-      <div class="card-icon">&#x1F522;</div>
       <div class="card-title">One-Hot Encoding</div>
       <div class="card-body"><code style="color:var(--accent-purple);">pd.get_dummies()</code> applied to <em>Orbit</em>, <em>LaunchSite</em>, <em>LandingPad</em>, and <em>Serial</em> columns. The resulting feature matrix expanded from 10 columns to <strong style="color:var(--accent-cyan);">83 feature columns</strong>.</div>
     </div>
@@ -967,12 +954,12 @@ df = pd.DataFrame(launch_dict)
       <table class="data-table" style="margin-top:0.5rem;">
         <thead><tr><th>Outcome</th><th>Class</th></tr></thead>
         <tbody>
-          <tr><td>True ASDS (Drone Ship)</td><td><span class="tag-green tag">1 ✓ Success</span></td></tr>
-          <tr><td>True RTLS (Return to Launch Site)</td><td><span class="tag-green tag">1 ✓ Success</span></td></tr>
-          <tr><td>True Ocean</td><td><span class="tag-green tag">1 ✓ Success</span></td></tr>
-          <tr><td>False ASDS</td><td><span class="tag tag" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);color:#F87171;">0 ✗ Failure</span></td></tr>
-          <tr><td>False RTLS</td><td><span class="tag tag" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);color:#F87171;">0 ✗ Failure</span></td></tr>
-          <tr><td>None None / No Attempt</td><td><span class="tag tag" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);color:#F87171;">0 ✗ Failure</span></td></tr>
+          <tr><td>True ASDS (Drone Ship)</td><td><span class="tag-green tag">1 Success</span></td></tr>
+          <tr><td>True RTLS (Return to Launch Site)</td><td><span class="tag-green tag">1 Success</span></td></tr>
+          <tr><td>True Ocean</td><td><span class="tag-green tag">1 Success</span></td></tr>
+          <tr><td>False ASDS</td><td><span class="tag tag" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);color:#F87171;">0 Failure</span></td></tr>
+          <tr><td>False RTLS</td><td><span class="tag tag" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);color:#F87171;">0 Failure</span></td></tr>
+          <tr><td>None None / No Attempt</td><td><span class="tag tag" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);color:#F87171;">0 Failure</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1322,22 +1309,18 @@ features_one_hot = features_one_hot.astype(<span class="string">'float64'</span>
 
     <div class="card-grid card-grid-2" style="margin-bottom:2rem;">
       <div class="card">
-        <div class="card-icon">&#x1F30D;</div>
         <div class="card-title">Task 1 — Launch Site Markers</div>
         <div class="card-body">All 4 launch sites plotted on a global map with circle markers and popup labels. Map centered on NASA Johnson Space Center (29.56°N, 95.08°W) with zoom level 5.</div>
       </div>
       <div class="card">
-        <div class="card-icon">&#x1F5FA;&#xFE0F;</div>
         <div class="card-title">Task 2 — Success/Failure Clusters</div>
         <div class="card-body">MarkerCluster plugin used to group 90 launches. Markers colored by outcome: <strong style="color:var(--accent-green);">green</strong> for successful landings, <strong style="color:#F87171;">red</strong> for failures. Enables site-level pattern recognition.</div>
       </div>
       <div class="card">
-        <div class="card-icon">&#x1F4CF;</div>
         <div class="card-title">Task 3 — Proximity Analysis</div>
         <div class="card-body">Haversine distance formula used to compute distances from KSC LC-39A (28.563°N, 80.577°W) to nearest coastline, highway, railway, and city — with PolyLine distance markers on the map.</div>
       </div>
       <div class="card">
-        <div class="card-icon">&#x1F9ED;</div>
         <div class="card-title">Strategic Site Selection</div>
         <div class="card-body">Launch sites clustered near coastlines for safe downrange trajectories, close to highways/railways for logistics, yet far from populated cities for safety. Geospatial analysis confirms deliberate siting by NASA/SpaceX.</div>
       </div>
@@ -1421,12 +1404,10 @@ distance_coastline = calculate_distance(
 
     <div class="card-grid card-grid-2">
       <div class="card">
-        <div class="card-icon">&#x1F967;</div>
         <div class="card-title">Pie Chart — Site Success Rate</div>
         <div class="card-body">Dropdown control filters by launch site. Pie chart updates dynamically showing the success vs. failure breakdown. "All Sites" option aggregates across all 4 pads.</div>
       </div>
       <div class="card">
-        <div class="card-icon">&#x1F4C9;</div>
         <div class="card-title">Scatter Plot — Payload vs. Success</div>
         <div class="card-body">Range slider (0–10,000 kg) filters launches by payload mass. Scatter plot shows payload vs. landing outcome, colored by booster version. Reveals payload-success correlation.</div>
       </div>
@@ -1525,7 +1506,7 @@ tree_cv.fit(X_train, Y_train)
 
 <span class="comment"># Best: criterion=entropy, max_depth=6, max_features=sqrt, splitter=random</span>
 print(tree_cv.best_params_)   <span class="comment"># → 90.4% CV accuracy</span>
-print(tree_cv.score(X_test, Y_test))  <span class="comment"># → 94.4% test accuracy ✓</span>
+print(tree_cv.score(X_test, Y_test))  <span class="comment"># → 94.4% test accuracy </span>
   </div>
 
   <!-- Confusion Matrix Images -->
@@ -1602,7 +1583,7 @@ Comparison of all four models on cross-validation and held-out test set accuracy
 
   <!-- Winner Highlight -->
   <div class="highlight-box green">
-    <div class="highlight-title">&#x1F3C6; Decision Tree — Best Performing Model</div>
+    <div class="highlight-title">Decision Tree — Best Performing Model</div>
     <strong style="color:var(--accent-green);">94.4% test accuracy</strong> with optimal hyperparameters: 
     <code>criterion=entropy</code>, <code>max_depth=6</code>, <code>max_features=sqrt</code>, <code>splitter=random</code>.
     The depth-limited tree prevents overfitting while capturing the key decision boundaries in the 83-feature space.
@@ -1620,7 +1601,6 @@ Comparison of all four models on cross-validation and held-out test set accuracy
 
   <div class="card-grid card-grid-2" style="margin-bottom:2rem;">
     <div class="card">
-      <div class="card-icon">&#x1F4A1;</div>
       <div class="card-title">What Predicts Success</div>
       <ul class="findings-list">
         <li>Flight number is a strong predictor — success rate increases with launch experience</li>
@@ -1632,7 +1612,6 @@ Comparison of all four models on cross-validation and held-out test set accuracy
       </ul>
     </div>
     <div class="card">
-      <div class="card-icon">&#x1F4BC;</div>
       <div class="card-title">Business Implications</div>
       <ul class="findings-list">
         <li>~$40–50M saved per reused booster — the model predicts this directly</li>
@@ -1646,7 +1625,6 @@ Comparison of all four models on cross-validation and held-out test set accuracy
   </div>
 
   <div class="card">
-    <div class="card-icon">&#x1F4C8;</div>
     <div class="card-title">Model Performance Summary</div>
     <div class="card-body" style="margin-bottom:1rem;">All four classifiers were trained on 80% of the 90-launch dataset (72 samples) and evaluated on the held-out 20% (18 samples). GridSearchCV with 10-fold cross-validation was used for hyperparameter tuning.</div>
     <ul class="findings-list">
@@ -1669,72 +1647,58 @@ Comparison of all four models on cross-validation and held-out test set accuracy
 
   <div class="tech-grid">
     <div class="tech-item">
-      <div class="tech-icon">&#x1F40D;</div>
       <div class="tech-name">Python 3.8</div>
       <div class="tech-desc">Core language</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F43C;</div>
       <div class="tech-name">Pandas</div>
       <div class="tech-desc">Data manipulation</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F4D0;</div>
       <div class="tech-name">NumPy</div>
       <div class="tech-desc">Numerical ops</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F4CA;</div>
       <div class="tech-name">Matplotlib</div>
       <div class="tech-desc">Visualization</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F5BC;&#xFE0F;</div>
       <div class="tech-name">Seaborn</div>
       <div class="tech-desc">Statistical plots</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F916;</div>
       <div class="tech-name">scikit-learn</div>
       <div class="tech-desc">ML &amp; GridSearchCV</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F578;&#xFE0F;</div>
       <div class="tech-name">BeautifulSoup</div>
       <div class="tech-desc">Web scraping</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F310;</div>
       <div class="tech-name">Requests</div>
       <div class="tech-desc">HTTP / REST API</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F5FA;&#xFE0F;</div>
       <div class="tech-name">Folium</div>
       <div class="tech-desc">Interactive maps</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F4C9;</div>
       <div class="tech-name">Plotly Dash</div>
       <div class="tech-desc">Dashboard app</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F5C4;&#xFE0F;</div>
       <div class="tech-name">IBM DB2 / SQL</div>
       <div class="tech-desc">Structured queries</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F4D3;</div>
       <div class="tech-name">Jupyter</div>
       <div class="tech-desc">Notebooks</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x1F9EC;</div>
       <div class="tech-name">SpaceX API</div>
       <div class="tech-desc">Launch data v4</div>
     </div>
     <div class="tech-item">
-      <div class="tech-icon">&#x2601;&#xFE0F;</div>
       <div class="tech-name">IBM Watson</div>
       <div class="tech-desc">Cloud compute</div>
     </div>
