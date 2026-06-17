@@ -73,7 +73,7 @@ a:hover { text-decoration: underline; }
   line-height: 1.2;
 }
 .hero-title span { color: var(--gold); }
-.hero-subtitle {
+.hero-subtitle { display: none;
   font-size: 1.1rem;
   color: var(--text);
   margin-bottom: 8px;
@@ -586,24 +586,12 @@ footer p + p { margin-top: 6px; }
     <p>The data collection pipeline was built using <code>requests</code> for HTTP calls
     and <code>pandas</code> for data structuring. Four helper functions were defined
     to decode the opaque ID references returned by the API into human-readable values:</p>
-    <div class="fn-grid">
-      <div class="fn-card">
-        <div class="fn-name">getBoosterVersion()</div>
-        <div class="fn-desc">Calls the <code>/rockets/{id}</code> endpoint to resolve each rocket ID into a human-readable booster version name (e.g. Falcon 9 v1.1, FT, B5).</div>
-      </div>
-      <div class="fn-card">
-        <div class="fn-name">getLaunchSite()</div>
-        <div class="fn-desc">Calls <code>/launchpads/{id}</code> to retrieve the full site name, longitude, and latitude for each launch location.</div>
-      </div>
-      <div class="fn-card">
-        <div class="fn-name">getPayloadData()</div>
-        <div class="fn-desc">Calls <code>/payloads/{id}</code> to retrieve payload mass (kg) and target orbit type for each mission.</div>
-      </div>
-      <div class="fn-card">
-        <div class="fn-name">getCoreData()</div>
-        <div class="fn-desc">Calls <code>/cores/{id}</code> to retrieve landing outcome, landing type (ASDS drone ship / RTLS), number of prior flights, and grid fin status.</div>
-      </div>
-    </div>
+    <ul style="margin-top: 0.8rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; list-style: none;">
+      <li style="color: rgb(85,85,85); font-size: 0.85rem;"><strong style="color: #c9a84c;">getBoosterVersion()</strong> — Calls <code>/rockets/{id}</code> to resolve each rocket ID into a booster version name (e.g. Falcon 9 v1.1, FT, B5).</li>
+      <li style="color: rgb(85,85,85); font-size: 0.85rem;"><strong style="color: #c9a84c;">getLaunchSite()</strong> — Calls <code>/launchpads/{id}</code> to retrieve the full site name, longitude, and latitude for each launch location.</li>
+      <li style="color: rgb(85,85,85); font-size: 0.85rem;"><strong style="color: #c9a84c;">getPayloadData()</strong> — Calls <code>/payloads/{id}</code> to retrieve payload mass (kg) and target orbit type for each mission.</li>
+      <li style="color: rgb(85,85,85); font-size: 0.85rem;"><strong style="color: #c9a84c;">getCoreData()</strong> — Calls <code>/cores/{id}</code> to retrieve landing outcome, landing type (ASDS drone ship / RTLS), number of prior flights, and grid fin status.</li>
+    </ul>
   </div>
 
   <div class="content-card">
