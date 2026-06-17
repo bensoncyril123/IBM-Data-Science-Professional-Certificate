@@ -379,46 +379,47 @@ footer {
   </div>
   
   <div class="content-card">
-    <h3>Approach</h3>
-    <p>Used the SpaceX v4 REST API to fetch historical launch records, then enriched each record by making 
-    additional API calls for rocket details, payload mass, launchpad coordinates, and core (booster) landing outcomes. 
-    A static JSON snapshot was used for reproducibility.</p>
+  <h3>Libraries & Helper Functions</h3>
+  <p style="color:#94A3B8; line-height:1.8; margin-bottom:1rem;">
+    The data collection pipeline was built using <strong style="color:#00D4FF">requests</strong> for HTTP calls 
+    and <strong style="color:#00D4FF">pandas</strong> for data structuring. Four helper functions were defined 
+    to decode the opaque ID references returned by the API into human-readable values:
+  </p>
+  <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:1rem; margin-bottom:1rem;">
+    <div style="background:#0A0E1A; border:1px solid #1E3450; border-left:3px solid #00D4FF; border-radius:6px; padding:1rem;">
+      <div style="color:#00D4FF; font-weight:600; margin-bottom:0.4rem;">getBoosterVersion()</div>
+      <div style="color:#94A3B8; font-size:0.85rem; line-height:1.6;">Calls the <code>/rockets/{id}</code> endpoint to resolve each rocket ID into a human-readable booster version name (e.g. Falcon 9 Block 5).</div>
+    </div>
+    <div style="background:#0A0E1A; border:1px solid #1E3450; border-left:3px solid #10B981; border-radius:6px; padding:1rem;">
+      <div style="color:#10B981; font-weight:600; margin-bottom:0.4rem;">getLaunchSite()</div>
+      <div style="color:#94A3B8; font-size:0.85rem; line-height:1.6;">Calls <code>/launchpads/{id}</code> to retrieve the full site name, longitude, and latitude for each launch location.</div>
+    </div>
+    <div style="background:#0A0E1A; border:1px solid #1E3450; border-left:3px solid #F59E0B; border-radius:6px; padding:1rem;">
+      <div style="color:#F59E0B; font-weight:600; margin-bottom:0.4rem;">getPayloadData()</div>
+      <div style="color:#94A3B8; font-size:0.85rem; line-height:1.6;">Calls <code>/payloads/{id}</code> to retrieve payload mass (kg) and target orbit type for each mission.</div>
+    </div>
+    <div style="background:#0A0E1A; border:1px solid #1E3450; border-left:3px solid #A78BFA; border-radius:6px; padding:1rem;">
+      <div style="color:#A78BFA; font-weight:600; margin-bottom:0.4rem;">getCoreData()</div>
+      <div style="color:#94A3B8; font-size:0.85rem; line-height:1.6;">Calls <code>/cores/{id}</code> to retrieve landing outcome, landing type (ASDS drone ship / RTLS), number of prior flights, and gridfin/leg deployment status.</div>
+    </div>
   </div>
-<div class="content-card"><h4>Cell 16</h4><div class="code-block"><pre><code class="lang-python"># Takes the dataset and uses the rocket column to call the API and append the data to the list
-def getBoosterVersion(data):
-    for x in data[&#x27;rocket&#x27;]:
-        response = requests.get(&quot;https://api.spacexdata.com/v4/rockets/&quot;+str(x)).json()
-        BoosterVersion.append(response[&#x27;name&#x27;])</code></pre></div></div><div class="content-card"><h4>Cell 18</h4><div class="code-block"><pre><code class="lang-python"># Takes the dataset and uses the launchpad column to call the API and append the data to the list
-def getLaunchSite(data):
-    for x in data[&#x27;launchpad&#x27;]:
-        response = requests.get(&quot;https://api.spacexdata.com/v4/launchpads/&quot;+str(x)).json()
-        Longitude.append(response[&#x27;longitude&#x27;])
-        Latitude.append(response[&#x27;latitude&#x27;])
-        LaunchSite.append(response[&#x27;name&#x27;])</code></pre></div></div><div class="content-card"><h4>Cell 20</h4><div class="code-block"><pre><code class="lang-python"># Takes the dataset and uses the payloads column to call the API and append the data to the lists
-def getPayloadData(data):
-    for load in data[&#x27;payloads&#x27;]:
-        response = requests.get(&quot;https://api.spacexdata.com/v4/payloads/&quot;+load).json()
-        PayloadMass.append(response[&#x27;mass_kg&#x27;])
-        Orbit.append(response[&#x27;orbit&#x27;])</code></pre></div></div><div class="content-card"><h4>Cell 22</h4><div class="code-block"><pre><code class="lang-python"># Takes the dataset and uses the cores column to call the API and append the data to the lists
-def getCoreData(data):
-    for core in data[&#x27;cores&#x27;]:
-            if core[&#x27;core&#x27;] != None:
-                response = requests.get(&quot;https://api.spacexdata.com/v4/cores/&quot;+core[&#x27;core&#x27;]).json()
-                Block.append(response[&#x27;block&#x27;])
-                ReusedCount.append(response[&#x27;reuse_count&#x27;])
-                Serial.append(response[&#x27;serial&#x27;])
-            else:
-                Block.append(None)
-                ReusedCount.append(None)
-                Serial.append(None)
-            Outcome.append(str(core[&#x27;landing_success&#x27;])+&#x27; &#x27;+str(core[&#x27;landing_type&#x27;]))
-            Flights.append(core[&#x27;flight&#x27;])
-            GridFins.append(core[&#x27;gridfins&#x27;])
-            Reused.append(core[&#x27;reused&#x27;])
-            Legs.append(core[&#x27;legs&#x27;])
-            LandingPad.append(core[&#x27;landpad&#x27;])</code></pre></div></div><div class="content-card"><h4>Cell 24</h4><div class="code-block"><pre><code class="lang-python">spacex_url=&quot;https://api.spacexdata.com/v4/launches/past&quot;</code></pre></div></div><div class="content-card"><h4>Cell 36</h4><div class="code-block"><pre><code class="lang-python"># Use json_normalize method to convert the json result into a dataframe
-data = pd.json_normalize(response.json())</code></pre></div></div><div class="content-card"><h4>Cell 38</h4><div class="code-block"><pre><code class="lang-python"># Get the head of the dataframe
-data.head(5)</code></pre></div><div class="df-container"><div class="df-caption">Output: DataFrame (Cell 38)</div><div>
+</div>
+
+<div class="content-card">
+  <h3>API Request & Response</h3>
+  <p style="color:#94A3B8; line-height:1.8; margin-bottom:1rem;">
+    A GET request was made to the SpaceX v4 REST API endpoint 
+    <code style="color:#00D4FF">GET /launches/past</code>, returning a JSON array of all past launches. 
+    A static snapshot hosted on IBM Cloud Object Storage was used to ensure reproducibility across sessions. 
+    The response returned a <strong style="color:#F59E0B">200 OK</strong> status and was parsed using 
+    <code>pd.json_normalize()</code> — flattening the nested JSON structure into a tabular DataFrame.
+  </p>
+  <p style="color:#94A3B8; line-height:1.8; margin-bottom:1.5rem;">
+    The raw response contained heavily nested ID references — every rocket, launchpad, payload, and core was 
+    represented only by a UUID string, not by human-readable values. The four helper functions above were 
+    applied to resolve each ID through secondary API calls, enriching the dataset with meaningful labels.
+  </p>
+  <div class="df-container"><div class="df-caption">Raw API Response — First 5 Rows (flight_number, date, rocket ID, launchpad ID, payloads)</div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -708,57 +709,23 @@ data.head(5)</code></pre></div><div class="df-container"><div class="df-caption"
     </tr>
   </tbody>
 </table>
-</div></div></div><div class="content-card"><h4>Cell 40</h4><div class="code-block"><pre><code class="lang-python"># Lets take a subset of our dataframe keeping only the features we want and the flight number, and date_utc.
-data = data[[&#x27;rocket&#x27;, &#x27;payloads&#x27;, &#x27;launchpad&#x27;, &#x27;cores&#x27;, &#x27;flight_number&#x27;, &#x27;date_utc&#x27;]]
+</div></div>
+</div>
 
-# We will remove rows with multiple cores because those are falcon rockets with 2 extra rocket boosters and rows that have multiple payloads in a single rocket.
-data = data[data[&#x27;cores&#x27;].map(len)==1]
-data = data[data[&#x27;payloads&#x27;].map(len)==1]
-
-# Since payloads and cores are lists of size 1 we will also extract the single value in the list and replace the feature.
-data[&#x27;cores&#x27;] = data[&#x27;cores&#x27;].map(lambda x : x[0])
-data[&#x27;payloads&#x27;] = data[&#x27;payloads&#x27;].map(lambda x : x[0])
-
-# We also want to convert the date_utc to a datetime datatype and then extracting the date leaving the time
-data[&#x27;date&#x27;] = pd.to_datetime(data[&#x27;date_utc&#x27;]).dt.date
-
-# Using the date we will restrict the dates of the launches
-data = data[data[&#x27;date&#x27;] &lt;= datetime.date(2020, 11, 13)]</code></pre></div></div><div class="content-card"><h4>Cell 42</h4><div class="code-block"><pre><code class="lang-python">#Global variables 
-BoosterVersion = []
-PayloadMass = []
-Orbit = []
-LaunchSite = []
-Outcome = []
-Flights = []
-GridFins = []
-Reused = []
-Legs = []
-LandingPad = []
-Block = []
-ReusedCount = []
-Serial = []
-Longitude = []
-Latitude = []</code></pre></div></div><div class="content-card"><h4>Cell 46</h4><div class="code-block"><pre><code class="lang-python"># Call getBoosterVersion
-getBoosterVersion(data)</code></pre></div></div><div class="content-card"><h4>Cell 54</h4><div class="code-block"><pre><code class="lang-python">launch_dict = {&#x27;FlightNumber&#x27;: list(data[&#x27;flight_number&#x27;]),
-&#x27;Date&#x27;: list(data[&#x27;date&#x27;]),
-&#x27;BoosterVersion&#x27;:BoosterVersion,
-&#x27;PayloadMass&#x27;:PayloadMass,
-&#x27;Orbit&#x27;:Orbit,
-&#x27;LaunchSite&#x27;:LaunchSite,
-&#x27;Outcome&#x27;:Outcome,
-&#x27;Flights&#x27;:Flights,
-&#x27;GridFins&#x27;:GridFins,
-&#x27;Reused&#x27;:Reused,
-&#x27;Legs&#x27;:Legs,
-&#x27;LandingPad&#x27;:LandingPad,
-&#x27;Block&#x27;:Block,
-&#x27;ReusedCount&#x27;:ReusedCount,
-&#x27;Serial&#x27;:Serial,
-&#x27;Longitude&#x27;: Longitude,
-&#x27;Latitude&#x27;: Latitude}
-</code></pre></div></div><div class="content-card"><h4>Cell 56</h4><div class="code-block"><pre><code class="lang-python"># Create a data from launch_dict
-df = pd.DataFrame.from_dict(launch_dict)</code></pre></div></div><div class="content-card"><h4>Cell 58</h4><div class="code-block"><pre><code class="lang-python"># Show the head of the dataframe
-df.head()</code></pre></div><div class="df-container"><div class="df-caption">Output: DataFrame (Cell 58)</div><div>
+<div class="content-card">
+  <h3>Building the Launch DataFrame</h3>
+  <p style="color:#94A3B8; line-height:1.8; margin-bottom:1rem;">
+    After all helper functions were applied, the resolved values were assembled into a structured Python 
+    dictionary — <code>launch_dict</code> — with the following columns:
+  </p>
+  <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:0.6rem; margin-bottom:1.5rem;">
+    <div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">FlightNumber</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Date</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">BoosterVersion</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">PayloadMass</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Orbit</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">LaunchSite</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Outcome</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Flights</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">GridFins</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Reused</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Legs</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">LandingPad</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Block</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">ReusedCount</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Serial</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Longitude</code></div><div style="background:#0A0E1A; border:1px solid #1E3450; border-radius:4px; padding:0.5rem 0.75rem; color:#CBD5E1; font-size:0.82rem;"><code style="color:#00D4FF">Latitude</code></div>
+  </div>
+  <p style="color:#94A3B8; line-height:1.8; margin-bottom:1.5rem;">
+    This dictionary was converted into a <strong style="color:#00D4FF">pandas DataFrame</strong> — 
+    the clean, enriched dataset ready for filtering and wrangling.
+  </p>
+  <div class="df-container"><div class="df-caption">Constructed Launch DataFrame — First 5 Rows (decoded column names)</div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -898,14 +865,23 @@ df.head()</code></pre></div><div class="df-container"><div class="df-caption">Ou
     </tr>
   </tbody>
 </table>
-</div></div></div><div class="content-card"><h4>Cell 61</h4><div class="code-block"><pre><code class="lang-python">data_falcon9 = df[df[&#x27;BoosterVersion&#x27;]!=&#x27;Falcon 1&#x27;]</code></pre></div></div><div class="content-card"><h4>Cell 63</h4><div class="code-block"><pre><code class="lang-python">data_falcon9.loc[:,&#x27;FlightNumber&#x27;] = list(range(1, data_falcon9.shape[0]+1))
-data_falcon9</code></pre></div><div class="output-block"><div class="output-label">Stream Output</div><pre>/opt/conda/envs/Python-3.8-main/lib/python3.8/site-packages/pandas/core/indexing.py:1676: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
+</div></div>
+</div>
 
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self._setitem_single_column(ilocs[0], value, pi)
-</pre></div><div class="df-container"><div class="df-caption">Output: DataFrame (Cell 63)</div><div>
+<div class="content-card">
+  <h3>Filtering to Falcon 9 Only</h3>
+  <p style="color:#94A3B8; line-height:1.8; margin-bottom:1rem;">
+    The raw dataset included launches from the earlier <strong style="color:#F87171">Falcon 1</strong> vehicle, 
+    which is structurally different from the Falcon 9 and irrelevant to the landing prediction objective. 
+    These records were filtered out, retaining only rows where <code>BoosterVersion != 'Falcon 1'</code>. 
+    The <code>FlightNumber</code> column was then reset sequentially from 1 to reflect the correct Falcon 9 
+    launch count.
+  </p>
+  <p style="color:#94A3B8; line-height:1.8; margin-bottom:1.5rem;">
+    The resulting dataset contains <strong style="color:#10B981">90 Falcon 9 launches</strong> — the core 
+    dataset used for all subsequent analysis, visualisation, and machine learning phases.
+  </p>
+  <div class="df-container"><div class="df-caption">Final Falcon 9 Dataset — Flight numbers reset, Falcon 1 records removed</div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1166,7 +1142,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   </tbody>
 </table>
 <p>90 rows × 17 columns</p>
-</div></div></div><div class="content-card"><h4>Cell 66</h4><div class="code-block"><pre><code class="lang-python">data_falcon9.isnull().sum()</code></pre></div><div class="output-block"><div class="output-label">Output</div><pre>FlightNumber       0
+</div></div>
+</div>
+<div class="content-card"><h4>Cell 66</h4><div class="code-block"><pre><code class="lang-python">data_falcon9.isnull().sum()</code></pre></div><div class="output-block"><div class="output-label">Output</div><pre>FlightNumber       0
 Date               0
 BoosterVersion     0
 PayloadMass        5
